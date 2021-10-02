@@ -36,7 +36,7 @@ This command will prompt you to create a password for each node. After setting a
 
 7) Pre-fund both node accounts by repeating the above step at the next prompt.
 
-8) Select "no" when asked with pre-compile node addresses with 1 wei.
+8) Select "no" when asked to pre-compile node addresses with 1 wei.
 
 9) The next step defines the chain/network ID. Enter a three-digit code. For example, I used a chain ID of "232" for my testnet. Store the chain ID in a separate file for future reference.
 
@@ -50,13 +50,13 @@ Below is a look at the end-to-end process of creating your network and configuri
 ![network_genesis_block_config](https://github.com/Nik-Golthi/Test-Blockchain-POA/blob/main/Screenshots/network_genesis_block_config.png)
 
 
-## **Part 3: Initialize Nodes
+## **Part 3: Initialize Nodes**
 
 Initialize nodes by running the following geth command in your terminal:
 
 ##### **./geth --datadir node1 init networkname.json**
 
-For example, I initialized my nodes the following commands:
+For example, I initialized my nodes with the following commands:
 
 ##### **./geth --datadir zbank1 init homework.json**
 ##### **./geth --datadir zbank2 init homework.json**  
@@ -68,7 +68,7 @@ For example, I initialized my nodes the following commands:
 ![initialize_zbank2](https://github.com/Nik-Golthi/Test-Blockchain-POA/blob/main/Screenshots/initialize_zbank2.png)
 
 
-## **Part 4: Run Nodes and Start Mining Blocks
+## **Part 4: Run Nodes and Start Mining Blocks**
 
 Run your first node with the following command: 
 
@@ -85,7 +85,7 @@ Additionally, if all steps were executed properly, the node should start mining 
 ##### Run First Node 
 ![zbank1_run_unlock](https://github.com/Nik-Golthi/Test-Blockchain-POA/blob/main/Screenshots/zbank1_run_unlock.png)
 
-Prior to running our second node, we need to save one more bit of information: the first nodes enode address. We should see the enode address in our terminal window after running the above geth command to run the first node. The enode address will be to right of a message that says "Started P2P networking". We'll need this enode address to sync our second node with the first node. Find the address and store it in a separate file.
+Prior to running our second node, we'll need to save one more piece of information: the first node's enode address. We should see the enode address in our terminal window after running the above geth command to run the first node. The enode address will be to right of a message that says "Started P2P networking". We'll need this enode address to sync our second node with the first node. Find the address and store it in a separate file.
 
 ##### Store Enode Address
 ![enode_address](https://github.com/Nik-Golthi/Test-Blockchain-POA/blob/main/Screenshots/enode_address.png)
@@ -98,13 +98,13 @@ Once again, the sealer address refers to the second node's public key address, w
 
 ##### **./geth --datadir zbank2 --unlock "0x37837C20EA04c25F7c77536BC72Cba2B3ef1BfF2" --mine --port 30304 --bootnodes "enode://163b20d1c8ac6e0d5bbfedb19d42185d36ee88af6e967233c2e411ebc70aded92100f35da31b3ddc9ca3157a25b08942846215d0307e1aecf0c0523cace5fe99@127.0.0.1:30303" --ipcdisable --allow-insecure-unlock**
 
-As with the first node, we'll need to unlock the second node account with the node password defined earlier after running this command. If all steps were executed properly, the second node will sync with the first node and start mining blocks.
+As with the first node, we'll need to unlock the second node account with the node password defined earlier. If all steps were executed properly, the second node will sync with the first node and start mining blocks.
 
 ##### Run Second Node 
 ![zbank2_run_unlock](https://github.com/Nik-Golthi/Test-Blockchain-POA/blob/main/Screenshots/zbank2_run_unlock.png)
 
 
-## **Part 5: Send a Test Transaction in MyCrypto App
+## **Part 5: Send a Test Transaction in MyCrypto App**
 
 At this point, both nodes should be running and mining new blocks. The final step is to send a test transaction. Our approach will be to send funds from the first node to the second node.
 
@@ -130,7 +130,7 @@ Below is my custom network setup for my testnet:
 
 4) After connecting to your custom network, navigate to the "View & Send" tab to initialize your transaction
 
-5) Select "Keystore File" and select your first node's keystore file. The location of this file should have been saved in a previous step. Use the node password to unlock the keystore file. After unlocking, you should see your first node's pre-funded balance:
+5) Select "Keystore File" and select your first node's keystore file. The location of this file should have been saved in a previous step. Use the node password to unlock the keystore file. After unlocking, you'll arrive at a transaction page. You should see your first node's pre-funded balance on the upper right of this page:
 
 ![node1_wallet_balance](https://github.com/Nik-Golthi/Test-Blockchain-POA/blob/main/Screenshots/node1_wallet_balance.png)
 
@@ -140,7 +140,7 @@ Below is my custom network setup for my testnet:
 - Enter an amount of ETH in the "Amount" field.
 - Select "Send Transaction".
 
-7) Sending the transaction will prompt a dialog box with a "Check TX Status" box. Click on "Check TX Status" to see the status and full details of the transaction.
+7) Sending the transaction will prompt a dialog box at the bottom of the window that reads "Check TX Status". Click on "Check TX Status" to see the status and full details of the transaction.
 
 ##### Check TX Status
 ![check_tx_status](https://github.com/Nik-Golthi/Test-Blockchain-POA/blob/main/Screenshots/check_tx_status.png)
